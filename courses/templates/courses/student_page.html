@@ -12,23 +12,31 @@
 
     <style>
         :root {
-            --primary-color: #FFEB3B;
-            --secondary-color: #FFD700;
-            --accent-color: #FF8C00;
-            --background-color: #FFF9E6;
-            --text-color: #2C2C2C;
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #60a5fa;
+            --background-color: #f0f6ff;
+            --text-color: #1e293b;
             --card-bg: #ffffff;
-            --gradient-primary: linear-gradient(135deg, #FFEB3B, #FFD700);
-            --gradient-secondary: linear-gradient(135deg, #FFD700, #FFA500);
-            --shadow-sm: 0 2px 8px rgba(255, 184, 0, 0.1);
-            --shadow-md: 0 4px 12px rgba(255, 184, 0, 0.15);
-            --shadow-lg: 0 8px 24px rgba(255, 184, 0, 0.2);
+            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+            --gradient-secondary: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            --shadow-sm: 0 2px 8px rgba(37, 99, 235, 0.08);
+            --shadow-md: 0 4px 12px rgba(37, 99, 235, 0.13);
+            --shadow-lg: 0 8px 24px rgba(37, 99, 235, 0.18);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            min-height: 100vh;
+            padding-bottom: 2rem;
         }
 
         .student-header {
             background: var(--primary-color);
             padding: 2.2rem 0 1.2rem 0;
-            color: var(--text-color);
+            color: #fff;
             box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
@@ -55,26 +63,26 @@
             margin-bottom: 0;
         }
         .header-tabs .nav-link {
-            background: #fffbe6;
-            color: #bfa600;
-            border: 1.5px solid #ffe066;
+            background: #e0e7ff;
+            color: var(--primary-color);
+            border: 1.5px solid #93c5fd;
             border-bottom: 3px solid transparent;
             border-radius: 12px 12px 0 0;
             font-weight: 700;
             margin-right: 0.5rem;
             transition: all 0.2s;
             padding: 0.7rem 1.5rem;
-            box-shadow: 0 2px 8px rgba(255, 184, 0, 0.07);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.07);
         }
         .header-tabs .nav-link.active, .header-tabs .nav-link:focus {
-            background: #fffde7;
-            color: #111;
-            border-bottom: 3px solid #ffd600;
-            box-shadow: 0 4px 16px rgba(255, 184, 0, 0.13);
+            background: #fff;
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--accent-color);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.13);
         }
         .header-tabs .nav-link:hover {
-            color: #ffb800;
-            background: #fffde7;
+            color: var(--accent-color);
+            background: #f0f6ff;
         }
         @media (max-width: 900px) {
             .header-main-row {
@@ -106,24 +114,16 @@
             }
         }
 
-        body {
-            font-family: 'Nunito', sans-serif;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            min-height: 100vh;
-            padding-bottom: 2rem;
-        }
-
         .welcome-message {
             font-size: 2.2rem;
             font-weight: 700;
-            color: var(--text-color);
+            color: #fff;
             margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 0 2px 8px rgba(30, 64, 175, 0.13);
         }
 
         .student-info {
-            color: var(--text-color);
+            color: #e0e7ff;
             opacity: 0.9;
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
@@ -147,25 +147,25 @@
         }
 
         .btn-profile {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--text-color);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.25);
         }
 
         .btn-profile:hover {
             background: #fff;
-            color: var(--text-color);
+            color: var(--primary-color);
         }
 
         .btn-logout {
             background: var(--accent-color);
-            color: var(--text-color);
+            color: #fff;
             border: none;
         }
 
         .btn-logout:hover {
-            background: #E67E00;
-            color: var(--text-color);
+            background: var(--secondary-color);
+            color: #fff;
         }
 
         .student-top-block {
@@ -192,6 +192,7 @@
             text-align: center;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
+            border-left: 5px solid var(--primary-color);
         }
 
         .stat-card:hover {
@@ -213,12 +214,12 @@
         }
 
         .stat-label {
-            color: #666;
+            color: #64748b;
             font-size: 0.9rem;
         }
 
         .student-tabs {
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid #e0e7ff;
             margin-bottom: 2rem;
         }
 
@@ -279,13 +280,13 @@
         .card-title {
             font-size: 1.2rem;
             font-weight: 700;
-            color: var(--text-color);
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
         .progress {
             height: 8px;
-            background-color: #eee;
+            background-color: #e0e7ff;
             border-radius: 4px;
             overflow: hidden;
             margin: 1rem 0;
@@ -299,7 +300,7 @@
 
         .continue-btn {
             background: var(--gradient-primary);
-            color: var(--text-color);
+            color: #fff;
             border: none;
             border-radius: 50px;
             padding: 0.8rem 1.5rem;
@@ -312,7 +313,8 @@
         }
 
         .continue-btn:hover {
-            color: var(--text-color);
+            background: var(--gradient-secondary);
+            color: #fff;
         }
 
         .connect-course-form {
@@ -326,13 +328,13 @@
         .form-control {
             border-radius: 10px;
             padding: 0.8rem 1.2rem;
-            border: 2px solid #eee;
+            border: 2px solid #e0e7ff;
             transition: all 0.3s ease;
         }
 
         .form-control:focus {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.25);
         }
 
         .course-request-section {
@@ -348,7 +350,7 @@
         }
 
         .request-item {
-            background: #f8f9fa;
+            background: #f1f5fd;
             border-radius: 10px;
             padding: 1rem;
             margin-bottom: 1rem;
@@ -365,18 +367,18 @@
         }
 
         .status-pending {
-            background: #FFF3CD;
-            color: #856404;
+            background: #dbeafe;
+            color: #2563eb;
         }
 
         .status-approved {
-            background: #D4EDDA;
-            color: #155724;
+            background: #d1fae5;
+            color: #059669;
         }
 
         .status-rejected {
-            background: #F8D7DA;
-            color: #721c24;
+            background: #fee2e2;
+            color: #b91c1c;
         }
 
         @keyframes fadeIn {
@@ -413,7 +415,7 @@
             height: 80px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(255, 184, 0, 0.07);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.07);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -423,7 +425,7 @@
             height: 72px;
             border-radius: 50%;
             object-fit: cover;
-            background: #f0f0f0;
+            background: #e0e7ff;
         }
         @media (max-width: 900px) {
             .student-avatar-container {
@@ -482,7 +484,7 @@
                         {% if student.avatar %}
                             <img src="{{ student.avatar.url }}" alt="Avatar" class="student-avatar">
                         {% else %}
-                            <img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/user.svg" alt="Avatar" class="student-avatar" style="background:#f0f0f0; padding:7px;">
+                            <img src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/user.svg" alt="Avatar" class="student-avatar" style="background:#e0e7ff; padding:7px;">
                         {% endif %}
                     </div>
                     <div>
@@ -620,7 +622,7 @@
                                                 <tr class="{% if s == student %}table-primary{% endif %}">
                                                     <td>{{ s.user.username }}</td>
                                                     <td>
-                                                        <span class="badge badge-warning">
+                                                        <span class="badge badge-info" style="background:var(--accent-color);color:#fff;">
                                                             <i class="fas fa-star"></i> {{ s.stars }}
                                                         </span>
                                                     </td>
