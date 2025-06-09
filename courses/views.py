@@ -28,45 +28,20 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            if user.is_admin:
-                return redirect('admin_page')
-            elif user.is_student:
-                return redirect('student_page')
-        else:
-            error_message = "Неверные учетные данные."
-            return render(request, 'courses/login.html', {'error': error_message})
-    return render(request, 'courses/login.html')
-
-def student_login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        
         user = authenticate(request, username=username, password=password)
         if user is not None and hasattr(user, 'student'):
             login(request, user)
             return redirect('student_page')
         else:
-            return HttpResponse('Invalid login or not a student.')
-    return render(request, 'courses/student_login.html')
-
-def admin_login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None and user.is_staff:
-            login(request, user)
-            return redirect('admin_page')
-        else:
-            return HttpResponse('Invalid login or not an admin.')
-    return render(request, 'courses/admin_login.html')
+            error_message = "Invalid username or password."
+            return render(request, 'courses/login.html', {'error': error_message})
+    
+    return render(request, 'courses/login.html')
 
 def logout_view(request):
     logout(request)
-    return redirect('admin_login')
+    return redirect('login_view')
 
 # Admin Views
 @login_required
@@ -1066,3 +1041,16 @@ def student_dashboard(request):
         'enrollments': enrollments,
     }
     return render(request, 'student_dashboard.html', context)
+
+# New AJAX view to get lesson content
+def get_lesson_content(request, lesson_id):
+    try:
+        lesson = Lesson.objects.get(id=lesson_id)
+        data = {
+            'title': lesson.title,
+            'video_url': lesson.video.url if lesson.video else None,
+            'pdf_url': lesson.pdf.url if lesson.pdf else None,
+        }
+        return JsonResponse(data)
+    except Lesson.DoesNotExist:
+        return JsonResponse({'error': 'Lesson not found'}, status=404)

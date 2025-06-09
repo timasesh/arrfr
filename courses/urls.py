@@ -3,12 +3,11 @@ from . import views
 
 urlpatterns = [
     # Authentication URLs
-    path('', views.student_login, name='student_login'),
-    path('admin_login/', views.admin_login, name='admin_login'),
+    path('', views.login_view, name='login_view'),
     path('logout/', views.logout_view, name='logout'),
+    path('aadminpanell/', views.admin_page, name='admin_page'),  # Новый URL для админ-панели
 
     # Main Pages
-    path('admin_page/', views.admin_page, name='admin_page'),
     path('student_page/', views.student_page, name='student_page'),
     path('profile/', views.student_profile, name='student_profile'),
     path('students/<int:user_id>/', views.student_details, name='student_details'),
@@ -42,6 +41,7 @@ urlpatterns = [
     path('replace-pdf/<int:lesson_id>/', views.replace_pdf, name='replace_pdf'),
     path('detach-lesson/<int:lesson_id>/from-module/<int:module_id>/', views.detach_lesson_from_module, name='detach_lesson_from_module'),
     path('edit_lesson/<int:lesson_id>/', views.edit_lesson, name='edit_lesson'),
+    path('lesson_content/<int:lesson_id>/', views.get_lesson_content, name='get_lesson_content'), # URL для AJAX запроса контента урока
 
     # Quiz Management
     path('quizzes/', views.quiz_list, name='quiz_list'),

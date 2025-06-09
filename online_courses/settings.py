@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courses',
     'widget_tweaks',
-
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +126,9 @@ STATICFILES_DIRS = [os.path.join('courses', 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'courses.User'
+
+# Admin panel URL
+ADMIN_URL = 'aadminpanell'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/image')
